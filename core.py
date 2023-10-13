@@ -1,6 +1,7 @@
 from enum import Enum
 
 import numpy
+import pyequion
 
 from . import activity_coefficients as act
 from . import properties_utils
@@ -382,8 +383,49 @@ class SolutionResult:
         self.x = x
         self.successfull = successfull
         self.alkalinity = calc_alkalinity_from_concs(self.concentrations)
-        pass
-
+                
+    def extend_result(self):
+        activities = {}
+        for spec in self.specie_names:
+            activities[spec] = pyequion.get_activity(self, spec)
+        self.activities = activities
+        
+        gammas = {}
+        for idx, spec in enumerate(self.specie_names):
+            gammas[spec] = self.gamma[idx]
+        self.gammas = gammas
+        
+        alpha = {}
+        for spec in self.specie_names:
+            if '+' in spec:
+                num = spec.count('+')
+            elif '-' in spec:
+                num = spec.count('-')
+            else:
+                num = 0
+            
+            if self.I * num <= 0.36:
+                alpha[spec] = 0.6/np.sqrt(num)
+            else:
+                alpha[spec] = np.sqrt(self.I) / num
+        self.alpha = alpha
+        
+        partial_conductivities = {}
+        conduct_dict = pyequion.data.species.species['conductivity']
+        for spec in self.specie_names:
+            try:
+                partial_conductivities[spec] = conduct_dict[spec]*self.concentrations[spec]*(self.gammas[spec] ** self.alpha[spec])
+            except KeyError:
+                if '-' not in spec and '+' not in spec:
+                    partial_conductivities[spec] = 0.0
+                else:
+                    partial_conductivities[spec] = np.nan
+            # except TypeError:
+            #     if self.alpha[spec] == np.nan:
+            #         print('alpha was nan')
+        self.partial_conductivities = partial_conductivities
+        
+                
 
 class EquilibriumSystem:
     "Equilibrium System - Main class for calculations"

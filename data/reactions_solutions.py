@@ -1,3 +1,4 @@
+import numpy as np
 reactions_solutions = [
     {
         "H2O": -1.0,
@@ -498,6 +499,14 @@ reactions_solutions = [
         "log_K25": -0.24,
         "log_K_coefs": "",
         "deltah": "",
+        "type": "rev",
+    },
+    {
+        "Na+": -1.0,
+        "AcO-": -1.0,
+        "NaOAc": 1.0,
+        "log_K25": -0.24, # Chemical Geology 1998, 151 (1), 69–84.
+        "log_K_coefs": "",
         "type": "rev",
     },
     {  # CHECK
