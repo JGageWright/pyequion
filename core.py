@@ -404,7 +404,9 @@ class SolutionResult:
             else:
                 num = 0
             
-            if self.I * num <= 0.36:
+            if num == 0:
+                alpha[spec] = np.nan
+            elif self.I * num <= 0.36:
                 alpha[spec] = 0.6/np.sqrt(num)
             else:
                 alpha[spec] = np.sqrt(self.I) / num
