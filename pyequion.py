@@ -79,7 +79,8 @@ def solve_solution(
     Parameters
     ----------
     comp_dict : dict
-        Key-value pairs of component TAG and molality in mM (e.g {'NaCl': 100} for 100mM of NaCl)
+        Key-value pairs of component TAG and molality in M (e.g {'NaCl': 0.1} for 100mM of NaCl)
+        Gage changed this to be in M instead of mM
     reaction_system : EquilibriumSystem, optional
         Utilizes a previous created EquilibriumSystem,
 
@@ -167,11 +168,11 @@ def solve_solution(
     """
     if reaction_system is None:
         feed_compounds = [k for k in comp_dict.keys()]
-        comps_vals = [v * 1e-3 for v in comp_dict.values()]
+        comps_vals = [v for v in comp_dict.values()]
     else:
         feed_compounds = reaction_system.feed_compounds
         comps_vals = [
-            comp_dict[feed] * 1e-3 if feed in comp_dict else np.nan
+            comp_dict[feed] if feed in comp_dict else np.nan
             for feed in feed_compounds
         ]
 
@@ -285,7 +286,7 @@ def solve_solution_pre_loaded(
 ):
 
     # comps_vals = [v * 1e-3 for v in comp_dict.values()]
-    comps_vals = [comp_dict[key] * 1e-3 for key in reaction_system.feed_compounds]
+    comps_vals = [comp_dict[key] for key in reaction_system.feed_compounds]
     args = get_args_from_comps_dict(
         TC, comps_vals, close_type, co2_partial_pressure, carbon_total, pH_fixed, alkalinity_fixed
     )
@@ -858,7 +859,7 @@ def get_solution_from_x(
 
     feed_compounds = esys.feed_compounds
     comps_vals = [
-        comp_dict[feed] * 1e-3 if feed in comp_dict else np.nan
+        comp_dict[feed] if feed in comp_dict else np.nan
         for feed in feed_compounds
     ]
 
