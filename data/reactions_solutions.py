@@ -171,6 +171,15 @@ reactions_solutions = [
         "type": "rev",
     },
     {
+        "AcOH": -1.0,
+        "AcO-": 1.0,
+        "H+": 1.0,
+        "log_K25": -4.76,
+        "log_K_coefs": "",
+        "deltah": "",
+        "type": "rev",
+    },
+    {
         "NH4+": -1.0,
         "SO4--": -1.0,
         "NH4SO4-": 1.0,
