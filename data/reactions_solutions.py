@@ -180,6 +180,15 @@ reactions_solutions = [
         "type": "rev",
     },
     {
+        "GdmH+": -1.0,
+        "Gdm": 1.0,
+        "H+": 1.0,
+        "log_K25": -13.6, # Perrin DD (1972). Dissociation Constants of Organic Bases in Aqueous Solution (Supplement ed.).
+        "log_K_coefs": "",
+        "deltah": "",
+        "type": "rev",
+    },
+    {
         "NH4+": -1.0,
         "SO4--": -1.0,
         "NH4SO4-": 1.0,
