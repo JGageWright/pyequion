@@ -180,6 +180,15 @@ reactions_solutions = [
         "type": "rev",
     },
     {
+        "CHOOH": -1.0,
+        "CHOO-": 1.0,
+        "H+": 1.0,
+        "log_K25": -3.745,
+        "log_K_coefs": "",
+        "deltah": "",
+        "type": "rev",
+    },
+    {
         "GdmH+": -1.0,
         "Gdm": 1.0,
         "H+": 1.0,
