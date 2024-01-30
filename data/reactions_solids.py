@@ -27,6 +27,15 @@ reactions_solids = [  # Reaction: solid allways negative coefficient!
         "phase_name": "Vaterite",
     },
     {
+        "Ca(OH)2(s)": -1.0,
+        "OH-": 2.0,
+        "Ca++": 1.0,
+        "log_K25": -5.102,
+        "log_K_coefs": [],
+        "type": "rev",
+        "phase_name": "",
+    },
+    {
         "CaMg(CO3)2(s)": -1.0,
         "Ca++": 1.0,
         "Mg++": 1.0,

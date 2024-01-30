@@ -189,6 +189,24 @@ reactions_solutions = [
         "type": "rev",
     },
     {
+        "Na+": -1.0,
+        "CHOO-": -1.0,
+        "NaOOCH": 1.0,
+        "log_K25": -0.322, # Chemical Physics Letters 2012, 554, 90–95.
+        "log_K_coefs": "",
+        "deltah": "",
+        "type": "rev",
+    },
+    {
+        "K+": -1.0,
+        "CHOO-": -1.0,
+        "KOOCH": 1.0,
+        "log_K25": -0.462, # Chemical Physics Letters 2012, 554, 90–95.
+        "log_K_coefs": "",
+        "deltah": "",
+        "type": "rev",
+    },
+    {
         "GdmH+": -1.0,
         "Gdm": 1.0,
         "H+": 1.0,

@@ -3,3 +3,5 @@ __pycache__/activity_coefficients.cpython-39.pyc
 __pycache__/pyequion.cpython-39.pyc
 data/__pycache__/reactions_solutions.cpython-39.pyc
 data/__pycache__/species.cpython-39.pyc
+data/__pycache__/reactions_solids.cpython-39.pyc
+data/__pycache__/reactions_solutions.cpython-39.pyc
