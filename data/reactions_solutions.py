@@ -494,6 +494,16 @@ reactions_solutions = [
         "type": "rev",
     },
     {
+        "Li+": -1.0,
+        "H2O": -1.0,
+        "LiOH": 1.0,
+        "H+": 1.0,
+        "log_K25": -13.64, #llnl.dat
+        "log_K_coefs": "",
+        "deltah": "",
+        "type": "rev",
+    },
+    {
         "Na+": -1.0,
         "CO3--": -1.0,
         "NaCO3-": 1.0,
