@@ -205,7 +205,7 @@ def create_equilibrium_from_reaction_and_species(
     else:
         solid_reactions_ = core.List()
         solid_reactions_.append(core.DUMMY_EqREACTION)
-        logging.info("No solid phase detected.")
+        # logging.info("No solid phase detected.")
 
     # Database as dict to store the info:
     feed_compounds_List = create_nb_List(feed_compounds)
@@ -760,7 +760,7 @@ def create_list_of_mass_balances_engine(
             ele_set.discard("O")
             ele_set.discard("H")
             # element_list = ele_set #ERROR When Using Al(OH)3 !!! Parenthesis
-            # logging.info(f"Element mass balances detected: {element_list}")
+            # logging.info(f"Element mass balances detectec: {element_list}")
 
     if not ele_set:  # FIXME
         return None
