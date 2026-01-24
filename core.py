@@ -386,8 +386,30 @@ class SolutionResult:
                 
     def extend_result(self):
         activities = {}
+
+        def grab_activity(solution: SolutionResult, tagCompound: str) -> float:
+            """Calculates the activity of a compound
+            Hack re-write of pyequion.py get_activity()
+
+            Parameters
+            ----------
+            solution : SolutionResult
+            tagCompound : str
+                The tag of the compound
+
+            Returns
+            -------
+            float
+                The activity in [M]
+            """
+            i = solution.idx[tagCompound]
+            c = solution.c_molal[i]
+            g = solution.gamma[i]
+            act = c * g
+            return act
+        
         for spec in self.specie_names:
-            activities[spec] = pyequion.get_activity(self, spec)
+            activities[spec] = grab_activity(self, spec)
         self.activities = activities
         
         gammas = {}
